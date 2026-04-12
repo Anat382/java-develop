@@ -27,8 +27,8 @@ public class Application2 {
             greetings();
         }
         if (numTask == 2){
-            TemprecheTest(myRandom(10), myRandom(10), myRandom(10));
-            TemprecheTest(myRandom(-10), myRandom(-10), myRandom(-10));
+            checkSign(myRandom(10), myRandom(10), myRandom(10));
+            checkSign(myRandom(-10), myRandom(-10), myRandom(-10));
         }
         if (numTask == 3){
             selectColor();
@@ -53,7 +53,7 @@ public class Application2 {
     }
 
     //Номер 2
-    public static void TemprecheTest(int a, int b, int c){
+    public static void checkSign(int a, int b, int c){
 
         int result = a + b + c;
         if (result >= 0){
@@ -68,9 +68,13 @@ public class Application2 {
 
         int data = 25;
 
-        if (data <= 10) {System.out.println("Красный");};
-        if (data > 10 && data <= 20) {System.out.println("Желтый");};
-        if (data > 20) {System.out.println("Зеленый");};
+        if (data <= 10) {
+            System.out.println("Красный");
+        } else if (data <= 20) {
+            System.out.println("Желтый");
+        } else {
+            System.out.println("Зеленый");
+        };
 
     }
 
@@ -91,7 +95,7 @@ public class Application2 {
     //Номер 5
     public static void addOrSubtractAndPrint(int initValue, int delta, boolean increment){
 
-        if (increment == true){
+        if (increment){
             System.out.println(initValue + delta);
         } else{
             System.out.println(initValue - delta);
@@ -100,16 +104,22 @@ public class Application2 {
 
     public static int myScanner() {
 
-        int result = 0;
+        int result;
+        Scanner scanner = new Scanner(System.in);
         while (true){
-            Scanner scanner = new Scanner(System.in);
+
             System.out.println("Введите целое число от 1 до 5");
-            result = scanner.nextInt();
-            System.out.println("Введено: " + result);
-            if (result > 0 && result <= 5){
-                break;
+            if (scanner.hasNextInt()) {
+                result = scanner.nextInt();
+                if (result > 0 && result <= 5) {
+                    System.out.println("Введено: " + result);
+                    break;
+                } else{
+                    System.out.println("Введенное значение не входит в заданный диапазон от 1 до 5, повторите попытку снова");
+                }
             } else{
-                System.out.println("Введенное значение не входи в заданный диапазон от 1 до 5, повторите попытку снова");
+                System.out.println("Введено не целое число повторите попытку снова");
+                scanner.next();
             }
 
         }
