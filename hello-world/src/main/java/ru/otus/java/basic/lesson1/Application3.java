@@ -60,7 +60,7 @@ public class Application3 {
         int sum_arr = 0;
         for (int i = 0; i < arr.length; i++) {
             int vlue_arr = arr[i];
-            if (vlue_arr >= 5) {
+            if (vlue_arr > 5) {
                 sum_arr += vlue_arr;
             }
         }
@@ -90,7 +90,9 @@ public class Application3 {
         }
         if (sum_arr_part1 > sum_arr_part2){
             System.out.println("Сумма первой части массива больше:" + sum_arr_part1);
-        } else{
+        } else if (sum_arr_part1 == sum_arr_part2){
+            System.out.println("Сумма массивов равна");
+        } else {
             System.out.println("Сумма второй части массива больше:" + sum_arr_part2);
         }
 
@@ -121,26 +123,26 @@ public class Application3 {
         }else{
             System.out.println("\nПроверка сортировки значений массива по убыванию:" + Arrays.toString(array));
         }
-        int flagCheck = 0;
+        boolean flagCheck = true;
          for (int i = 0; i < array.length - 1; i++){
              int valueArr = array[i];
              if (flagSort == 0){
                  if (valueArr < array[i+1]){
-                     flagCheck = 1;
+                     flagCheck = true;
                  } else{
-                     flagCheck = 0;
+                     flagCheck = false;
                      break;
                  }
              } else {
                  if (valueArr > array[i+1]){
-                     flagCheck = 1;
+                     flagCheck = true;
                  } else{
-                     flagCheck = 0;
+                     flagCheck = false;
                      break;
                  }
              }
          }
-        if(flagCheck == 1){
+        if(flagCheck){
             System.out.println("Значения отсортированы");
         } else{
             System.out.println("Значения не отсортированы");
