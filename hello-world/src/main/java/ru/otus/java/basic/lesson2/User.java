@@ -10,7 +10,7 @@ public class User {
     public int yearBerthDay;
     public String email;
 
-    public User(String surName, String firstName, String secondName, String yearBerthDay, String email){
+    public User(String surName, String firstName, String secondName, String yearBerthDay, String email) {
         this.surName = surName;
         this.firstName = firstName;
         this.secondName = secondName;
@@ -18,16 +18,16 @@ public class User {
         this.email = email;
     }
 
-    public int getAge(){
+    public int getAge() {
         LocalDate birthDate = LocalDate.of(yearBerthDay, 1, 1);
         LocalDate today = LocalDate.now();
         int ageUser = Period.between(birthDate, today).getYears();
         return ageUser;
     }
 
-    public void getInfo(){
-        System.out.println("\nФИО: " + surName + " " + firstName+ " " + secondName);
-        System.out.println("Год рождения: " +  yearBerthDay+ " " + "рожднения");
+    public void getInfo() {
+        System.out.println("\nФИО: " + surName + " " + firstName + " " + secondName);
+        System.out.println("Год рождения: " + yearBerthDay + " " + "рожднения");
         System.out.println("e-mail: " + email);
     }
 
