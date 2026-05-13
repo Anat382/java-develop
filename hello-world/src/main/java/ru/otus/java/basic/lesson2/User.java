@@ -10,11 +10,11 @@ public class User {
     public int yearBerthDay;
     public String email;
 
-    public User(String surName, String firstName, String secondName, String yearBerthDay, String email) {
+    public User(String surName, String firstName, String secondName, int yearBerthDay, String email) {
         this.surName = surName;
         this.firstName = firstName;
         this.secondName = secondName;
-        this.yearBerthDay = Integer.parseInt(yearBerthDay);
+        this.yearBerthDay = yearBerthDay;
         this.email = email;
     }
 

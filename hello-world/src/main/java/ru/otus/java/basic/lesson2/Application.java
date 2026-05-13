@@ -23,7 +23,7 @@ public class Application {
 
     public static void main(String[] args) {
         User user1 = new User("Ponomarev", "Anatoliy", "Aleksandrovich"
-                , "1990", "test@mail.ru");
+                , 1990, "test@mail.ru");
         user1.getInfo();
 
         String[][] usersGroup = {
@@ -41,28 +41,28 @@ public class Application {
         printUser(usersGroup);
 
         // Создадим коробку
-        Box myBox = new Box(40, 20, "Red");
+        Box myBox = new Box(40, 20, 30,"Red");
         myBox.getInfo();
         myBox.color = "Yellow";
         myBox.getInfo();
         myBox.inputItem("Книга");
-        myBox.openBox();
+        myBox.open();
         myBox.inputItem("Книга");
-        myBox.openBox();
+        myBox.open();
         myBox.outputItem();
-        myBox.openBox();
+        myBox.open();
         myBox.outputItem();
         myBox.inputItem("Фоторамка");
-        myBox.openBox();
+        myBox.open();
         myBox.inputItem("Документы");
     }
 
     public static void printUser(String[][] array) {
+        System.out.println("\n\nПользователи старше 40 лет:");
         for (int lev1 = 0; lev1 < array.length; lev1++) {
-            User users = new User(array[lev1][0], array[lev1][1], array[lev1][2], array[lev1][3], array[lev1][4]);
-            int ageUser = users.getAge();
-            if (ageUser > 40) {
-                users.getInfo();
+            User user = new User(array[lev1][0], array[lev1][1], array[lev1][2], Integer.parseInt(array[lev1][3]), array[lev1][4]);
+            if (user.getAge() > 40) {
+                user.getInfo();
             }
         }
     }

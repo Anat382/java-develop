@@ -3,59 +3,52 @@ package ru.otus.java.basic.lesson2;
 public class Box {
     private int width;
     private int heigth;
-    public String color;
-    private boolean open = false;
-    private boolean close = true;
+    private int length;
+    String color;
+    private boolean isOpened = false;
     private String item;
-    private boolean flagItem = false;
 
-    public Box(int width, int heigth, String color) {
+    public Box(int width, int heigth, int length, String color) {
         this.width = width;
         this.heigth = heigth;
+        this.length = length;
         this.color = color;
     }
 
     public void getInfo() {
         System.out.println("\nШирина коробки: " + width);
         System.out.println("Высота коробки: " + heigth);
+        System.out.println("Длинна коробки: " + length);
         System.out.println("Цвет коробки: " + color);
     }
 
     public void inputItem(String element) {
-        if (open && !flagItem) {
+        if (isOpened && item == null) {
             item = element;
-            flagItem = true;
             System.out.println("В коробку положили предмет: " + item);
-            closeBox();
-        } else if (!open) {
+            isOpened = false;
+        } else if (!isOpened) {
             System.out.println("Откройте коробку что бы положить предмет!");
-        } else if (flagItem) {
+        } else if (item != null) {
             System.out.println("В коробке уже есть предмет " + item + ", уберите его что бы положить новый!");
         }
     }
 
     public void outputItem() {
-        if (open && flagItem) {
-            flagItem = false;
+        if (isOpened && item != null) {
             System.out.println("Из коробку убрали предмет: " + item);
-            item = "";
-            closeBox();
-        } else if (!open) {
+            item = null;
+            isOpened = false;
+        } else if (!isOpened) {
             System.out.println("Откройте коробку что бы убрать предмет!");
-        } else if (!flagItem) {
+        } else if (item == null) {
             System.out.println("В коробке пусто, положите предмет!");
         }
     }
 
-    public void openBox() {
-        open = true;
-        close = false;
+    public void open() {
+        isOpened = true;
         System.out.println("Коробка теперь открыта!");
     }
 
-    public void closeBox() {
-        close = true;
-        open = false;
-        System.out.println("Коробка теперь закрыта!");
-    }
 }
