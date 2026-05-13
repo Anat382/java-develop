@@ -15,7 +15,7 @@ public abstract class Animal {
         } else if (endurance > 0 && endurance < distance){
             int distanceRun = endurance;
             endurance = endurance - distanceRun;
-            lossTimeSeconds = (int) (distanceRun * speedRun);
+            lossTimeSeconds = (int) (distanceRun / speedRun);
             System.out.println("Животное пробежало: " + distanceRun + " метров, из заданных: " + distance + " метров, за время " + lossTimeSeconds + " секунд," + " осталось выносливости: " + endurance + " ед.");
         } else {
             endurance = -1;
