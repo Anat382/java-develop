@@ -18,7 +18,7 @@ public class Dog extends Animal {
         int LossEnduranceDistance = distance * LossEndurance; // 4 ед. выносливости
         if (endurance >= LossEnduranceDistance) {
             endurance = endurance - LossEnduranceDistance;
-            lossTimeSeconds = (int) (distance / speedSwim);
+            lossTimeSeconds = (int) Math.ceil(distance / speedSwim);
             System.out.println("Животное проплыло: " + distance + " метров, за время " + lossTimeSeconds + " секунд, осталось выносливости: " + endurance + " ед.");
         } else if (endurance > 0){
             System.out.println("У животного не хватает выносливости проплыть дистанцию: " + distance + " метров, иначе утонет!, требуется выносливости: " + LossEnduranceDistance + " ед." + ", осталось выносливости: " + endurance  + " ед.");

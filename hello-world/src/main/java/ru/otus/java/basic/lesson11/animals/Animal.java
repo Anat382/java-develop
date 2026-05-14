@@ -10,12 +10,12 @@ public abstract class Animal {
         int lossTimeSeconds = -1;
         if (endurance >= distance) {
             endurance = endurance - distance;
-            lossTimeSeconds = (int) (distance * speedRun);
+            lossTimeSeconds = (int) Math.ceil(distance / speedRun);
             System.out.println("Животное пробежало: " + distance + " метров, за время " + lossTimeSeconds + " секунд, осталось выносливости: " + endurance + " ед.");
         } else if (endurance > 0 && endurance < distance){
             int distanceRun = endurance;
             endurance = endurance - distanceRun;
-            lossTimeSeconds = (int) (distanceRun / speedRun);
+            lossTimeSeconds = (int) Math.ceil(distanceRun / speedRun);
             System.out.println("Животное пробежало: " + distanceRun + " метров, из заданных: " + distance + " метров, за время " + lossTimeSeconds + " секунд," + " осталось выносливости: " + endurance + " ед.");
         } else {
             endurance = -1;

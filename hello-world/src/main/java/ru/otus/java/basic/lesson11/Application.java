@@ -23,9 +23,9 @@ public class Application {
 
     public static void main(String[] args) {
 
-        Cat cat = new Cat("Barsik", 0.26f, 100);
-        Dog dog = new Dog("Bobik", 0.3f, 1.2f, 300, 2);
-        Horse horse = new Horse("Veter", 0.1f, 0.6f, 1000, 4);
+        Cat cat = new Cat("Barsik", 13.9f, 100);
+        Dog dog = new Dog("Bobik", 4.2f, 1.2f, 300, 2);
+        Horse horse = new Horse("Veter", 19.7f, 1.1f, 1000, 4);
 
         cat.info();
         cat.run(50);
