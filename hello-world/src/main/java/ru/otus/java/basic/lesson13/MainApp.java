@@ -1,33 +1,47 @@
 package ru.otus.java.basic.lesson13;
 
-import ru.otus.java.basic.lesson13.Location.DenseForest;
-import ru.otus.java.basic.lesson13.Location.Plain;
-import ru.otus.java.basic.lesson13.Location.Swamp;
 import ru.otus.java.basic.lesson13.Vehicle.*;
 
 public class MainApp {
 
     public static void main(String[] args) {
 
-        Human human = new Human("Ivan");
+        Transport[] transport = {
+                new Bike(TypeTransport.bike, 100_000_000, 1_000, Terrain.swamp),
+                new Bike(TypeTransport.bike, 100_000_000, 100_000, Terrain.plain),
+                new Bike(TypeTransport.bike, 100_000_000, 10_000, Terrain.denseForest),
 
-        ActionVehicle[] actionVehicle = {
-                new Bike(TypeTransport.BikeTp.getType(), 100_000_000),
-                new Car(TypeTransport.CarTp.getType(), 60, 9),
-                new CrossVehicle(TypeTransport.CrossVehicleTp.getType(), 40, 15),
-                new Horse(TypeTransport.HorseTp.getType(), 100_0000, 2),
-                new Walk(TypeTransport.WalkTp.getType(), 100)
-        };
-        Actions[] actions = {
-                new DenseForest("Густой лес", human, 100_000),
-                new Plain("Равнина", human, 300_000),
-                new Swamp("Болото", human, 40_000)
+                new Car(TypeTransport.car, 60, 9, 1_000, Terrain.swamp),
+                new Car(TypeTransport.car, 60, 9, 500_000, Terrain.plain),
+                new Car(TypeTransport.car, 60, 9, 100_000, Terrain.denseForest),
+
+                new CrossVehicle(TypeTransport.crossVehicle, 40, 20, 100_000, Terrain.swamp),
+                new CrossVehicle(TypeTransport.crossVehicle, 40, 15, 300_000, Terrain.plain),
+                new CrossVehicle(TypeTransport.crossVehicle, 40, 18, 200_000, Terrain.denseForest),
+
+                new Horse(TypeTransport.horse, 100_0000, 2, 5_000, Terrain.swamp),
+                new Horse(TypeTransport.horse, 100_0000, 2, 100_000, Terrain.plain),
+                new Horse(TypeTransport.horse, 100_0000, 2, 50_000, Terrain.denseForest),
         };
 
-        for (ActionVehicle c : actionVehicle) {
-            for (Actions o : actions) {
-                human.setCurrentTransport(c.getName());
-                o.doIt(c);
+        Human[] human = {
+                new Human("Ivan", TypeTransport.bike, 100_000),
+                new Human("Ivan", TypeTransport.car, 100_000),
+                new Human("Ivan", TypeTransport.crossVehicle, 100_000),
+                new Human("Ivan", TypeTransport.horse, 100_000),
+                new Human("Ivan", TypeTransport.none, 100_000),
+        };
+
+        for (Human o : human) {
+            o.getInfo();
+            for (Transport c : transport) {
+                if (o.hasCurrentTransport()) {
+                    o.move(c);
+                } else {
+                    o.move(5_000);
+                    break;
+                }
+
             }
         }
     }

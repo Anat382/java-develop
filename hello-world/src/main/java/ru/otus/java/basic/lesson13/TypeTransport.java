@@ -1,8 +1,7 @@
 package ru.otus.java.basic.lesson13;
 
 public enum TypeTransport {
-    BikeTp("Велосипед"), CarTp("Машина"), CrossVehicleTp("Вездеход"), HorseTp("Лошадь"),
-    WalkTp("Пеший ход");
+    bike("Велосипед"), car("Машина"), crossVehicle("Вездеход"), horse("Лошадь"), none(null);
     private String name;
 
     TypeTransport(String name) {
