@@ -13,25 +13,28 @@ public class MainApp {
 
         System.out.println("Увеличение значений на заданное число: " + increcaseValueList(2, paramList(2, 15)));
 
-        Employee employee = new Employee();
-        employee.addEmployee(new Employee("Oleg", 22));
-        employee.addEmployee(new Employee("Ivan", 25));
-        employee.addEmployee(new Employee("Elena", 28));
-        employee.addEmployee(new Employee("Artem", 18));
-        employee.addEmployee(new Employee("Danil", 35));
-        employee.addEmployee(new Employee("Egor", 40));
-        employee.addEmployee(new Employee("Dima", 55));
+        List<Employee> employees = new ArrayList<>();
 
-        List<Employee> employees = new ArrayList<>(employee.getEmployee());
+        employees.add(new Employee("Oleg", 22));
+        employees.add(new Employee("Ivan", 25));
+        employees.add(new Employee("Elena", 28));
+        employees.add(new Employee("Artem", 18));
+        employees.add(new Employee("Danil", 35));
+        employees.add(new Employee("Egor", 40));
+        employees.add(new Employee("Dima", 55));
 
-        System.out.println("\nСписок имён сотрудников: " + employee.getNames(employees));
+        System.out.println("Список имён сотрудников: " + EmployeeUtils.getNames(employees));
+
         int age = 30;
-        System.out.println("Список имён сотрудников старше " + age + ": " + employee.getNamesAge(employees, age));
-        System.out.println("Проверка среднего возраста: ");
-        employee.checkAvgAge(employees, 25);
+        System.out.println("Список имён сотрудников старше " + age + ": " + EmployeeUtils.getNamesByMinAge(employees, age));
 
-        System.out.println("Минимальный  возраст сотрудника: " + employees.get(employee.youngEmployeeIndex(employees)).getAge());
-        System.out.println("Имя самого молодого сотрудника: " + employees.get(employee.youngEmployeeIndex(employees)).getName());
+        System.out.println("Проверка среднего возраста: ");
+        EmployeeUtils.checkAvgAge(employees, 25);
+
+        int youngIndex = EmployeeUtils.youngEmployeeIndex(employees);
+        Employee youngest = employees.get(youngIndex);
+        System.out.println("Минимальный возраст сотрудника: " + youngest.getAge());
+        System.out.println("Имя самого молодого сотрудника: " + youngest.getName());
 
     }
 
