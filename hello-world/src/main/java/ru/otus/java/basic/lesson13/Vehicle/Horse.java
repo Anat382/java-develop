@@ -48,8 +48,8 @@ public class Horse implements Transport {
                 System.out.println(getName() + " преодолела: " + distance + " метров, осталось выносливости: " + endurance + " ед.");
                 return true;
             } else if (endurance > 0 && endurance < LossEnduranceDistance) {
-                int distanceRun = endurance / lossEndurance;
                 endurance -= endurance;
+                int distanceRun = endurance / lossEndurance;
                 System.out.println(getName() + " преодолела: " + distanceRun + " метров из заданной дистанции: " + distance + " м." + ", осталось выносливости: " + endurance + " ед.");
                 return true;
             } else {
