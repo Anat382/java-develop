@@ -46,9 +46,9 @@ public class MainApp {
         return values;
     }
 
-    public static int sumValueList(List<Integer> ArrayList) {
+    public static int sumValueList(List<Integer> valueList) {
         int value = 0;
-        for (Integer val : ArrayList) {
+        for (Integer val : valueList) {
             if (val > 5) {
                 value += val;
             }
@@ -56,18 +56,18 @@ public class MainApp {
         return value;
     }
 
-    public static List<Integer> setValueList(int value, List<Integer> ArrayList) {
-        for (int i = 0; i < ArrayList.size(); i++) {
-            ArrayList.set(i, value);
+    public static List<Integer> setValueList(int value, List<Integer> valueList) {
+        for (int i = 0; i < valueList.size(); i++) {
+            valueList.set(i, value);
         }
-        return ArrayList;
+        return valueList;
     }
 
-    public static List<Integer> increcaseValueList(int value, List<Integer> ArrayList) {
-        for (int i = 0; i < ArrayList.size(); i++) {
-            ArrayList.set(i, ArrayList.get(i) + value);
+    public static List<Integer> increcaseValueList(int value, List<Integer> valueList) {
+        for (int i = 0; i < valueList.size(); i++) {
+            valueList.set(i, valueList.get(i) + value);
         }
-        return ArrayList;
+        return valueList;
     }
 
 }

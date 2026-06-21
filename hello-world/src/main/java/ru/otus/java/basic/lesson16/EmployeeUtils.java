@@ -14,12 +14,12 @@ public class EmployeeUtils {
         return nameList;
     }
 
-    public static List<Object> getNamesByMinAge(List<Employee> employees, int minAge) {
-        List<Object> employeesList = new ArrayList<>();
+    public static List<String> getNamesByMinAge(List<Employee> employees, int minAge) {
+        List<String> employeesList = new ArrayList<>();
         for (Employee emp : employees) {
             if (emp.getAge() >= minAge) {
                 employeesList.add(emp.getName());
-                employeesList.add(emp.getAge());
+                employeesList.add(String.valueOf(emp.getAge()));
             }
         }
         return employeesList;
